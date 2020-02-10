@@ -6,6 +6,10 @@
     <router-link to="/login">Login</router-link>
 
     <router-link to="/me">Me</router-link>
+
+    <router-link to="/change">Change Info</router-link>
+
+    <router-link to="/remove">Remove Account</router-link>
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 const secret = 'secretfortoken'
-const expiresIn = 60 * 60
+const expiresIn = 60 * 60 // 60min = 1hour
 
 const auth  =  {
   signToken (id) {
@@ -9,7 +9,7 @@ const auth  =  {
   ensureAuth () {
     return (req, res, next) => {
       const {authorization} = req.headers
-      if (!authorization) {
+      if (!authorization) { // check jwt token in header
         res.status(401)
         throw Error('No Authorization headers')
       }
@@ -26,6 +26,9 @@ const auth  =  {
   },
   verify (token) {
     return jwt.verify(token.replace(/^Bearer\s/, ''), secret)
+  },
+  decode (token) {
+    return jwt.decode(token.replace(/^Bearer\s/, '')).payload.id
   }
 }
 

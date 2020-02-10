@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import Home from '../components/Home'
 import Login from '../components/Login'
 import Me from '../components/Me'
+import Change from '../components/Change'
+import Remove from '../components/Remove'
 import store from '../store'
 
 Vue.use(Router)
@@ -30,6 +32,16 @@ export default new Router({
       name: 'Me',
       component: Me,
       beforeEnter: requireAuth()
+    },
+    {
+      path: '/change',
+      name: 'Change',
+      component: Change
+    },
+    {
+      path: '/remove',
+      name: 'Remove',
+      component: Remove
     }
   ]
 })
