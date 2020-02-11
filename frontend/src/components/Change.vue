@@ -1,12 +1,12 @@
 <template>
   <div>
     <h2>Change Password</h2>
-    <form @submit.prevent="onSubmit(email, password)">
+    <b-form @submit.prevent="onSubmit(email, newPassword)">
       <input type="text" v-model="email" placeholder="Email Address">
       <input type="password" v-model="newPassword" placeholder="new password">
       <input type="password" v-model="confirmPassword" placeholder="confirm password">
       <input type="submit" value="Change">
-    </form>
+    </b-form>
     <p><i></i></p>
   </div>
 </template>

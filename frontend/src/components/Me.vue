@@ -1,10 +1,27 @@
 <template>
-  <div>
-    <h2>Me</h2>
+  <div class="col-md">
+    <h2>Information</h2>
     <div>
-      <label>User Info:</label>
-      <pre>{{user}}</pre>
+      <table style="border: 1px solid black; align-content: center; align-items: center;">
+        <tr style="border: 0.5px solid black">
+          <td style="border: 0.5px solid black">User Name</td>
+          <td style="border: 0.5px solid black">{{ user.name }}</td>
+        </tr>
+        <tr style="border: 0.5px solid black">
+          <td style="border: 0.5px solid black">E-mail</td>
+          <td style="border: 0.5px solid black">{{ user.email }}</td>
+        </tr>
+        <tr style="border: 0.5px solid black">
+          <td style="border: 0.5px solid black">Password</td>
+          <td style="border: 0.5px solid black">{{ user.password }}</td>
+        </tr>
+        <tr style="border: 0.5px solid black">
+          <td style="border: 0.5px solid black">id</td>
+          <td style="border: 0.5px solid black">{{ user.id }}</td>
+        </tr>
+      </table>
     </div>
+    <br>
     <div>
       <label>Access Log:</label>
       <div v-for="log in accessLog" v-bind:key="log">{{log.userId}}, {{log.createAt}}</div>

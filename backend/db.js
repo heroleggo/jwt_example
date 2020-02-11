@@ -1,4 +1,4 @@
-const _db = {
+var _db = {
   users: [
     {id:1, name: 'chris', email: 'test@test.com', password: 'password'},
     {id:2, name: 'hero', email: 'asd@asd.com', password: 'password'}

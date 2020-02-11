@@ -1,15 +1,21 @@
 <template>
   <div>
-    <router-link to="/">Home</router-link>
+    <b-navbar style="background-color: #c0ff96">
+    <b-navbar-brand class="col-sm text-secondary">NavBar</b-navbar-brand>
 
-    <a href="" v-if="isAuthenticated" @click.prevent="onClickLogout">Logout</a>
-    <router-link to="/login">Login</router-link>
+    <b-link class="col-sm text-secondary" to="/">Home</b-link>
 
-    <router-link to="/me">Me</router-link>
+    <a class="col-sm text-secondary" href="" v-if="isAuthenticated" @click.prevent="onClickLogout">Logout</a>
 
-    <router-link to="/change">Change Info</router-link>
+    <b-link class="col-sm text-secondary" to="/login">Login</b-link>
 
-    <router-link to="/remove">Remove Account</router-link>
+    <b-link class="col-sm text-secondary" to="/me">Me</b-link>
+
+    <b-link class="col-sm text-secondary" to="/change">Change Info</b-link>
+
+    <b-link class="col-sm text-secondary" to="/remove">Remove Account</b-link>
+
+    </b-navbar>
   </div>
 </template>
 

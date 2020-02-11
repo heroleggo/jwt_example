@@ -1,11 +1,11 @@
 <template>
   <div>
     <h2>Remove User</h2>
-    <form @submit.prevent="onSubmit(email, password)">
+    <b-form @submit.prevent="onSubmit(email, password)">
       <input type="text" v-model="email" placeholder="Email Address">
       <input type="password" v-model="password" placeholder="Enter password">
       <input type="submit" value="Remove">
-    </form>
+    </b-form>
     <p><i></i></p>
   </div>
 </template>

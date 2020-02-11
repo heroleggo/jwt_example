@@ -1,11 +1,11 @@
 <template>
   <div>
     <h2>Login</h2>
-    <form @submit.prevent="onSubmit(email, password)">
+    <b-form @submit.prevent="onSubmit(email, password)">
       <input type="text" v-model="email" placeholder="Email Address">
       <input type="password" v-model="password" placeholder="Password">
       <input type="submit" value="Login">
-    </form>
+    </b-form>
     <p><i></i></p>
   </div>
 </template>
@@ -26,7 +26,7 @@ export default {
         .catch(({message}) => this.msg = message)
     },
     redirect () {
-      const {search} = window.location 
+      const {search} = window.location
       const tokens = search.replace(/^\?/, '').split('&')
       const {returnPath} = tokens.reduce((qs, tkn) => {
         const pair = tkn.split('=')
