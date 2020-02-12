@@ -1,0 +1,5 @@
+# large modules of node.js
+node_modules/
+
+# environment config file
+.env
