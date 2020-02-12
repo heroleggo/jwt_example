@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-navbar style="background-color: #c0ff96">
-    <b-navbar-brand class="col-sm text-secondary">NavBar</b-navbar-brand>
+    <b-navbar-brand class="col-sm text-primary">NavBar</b-navbar-brand>
 
     <b-link class="col-sm text-secondary" to="/">Home</b-link>
 
@@ -15,6 +15,7 @@
 
     <b-link class="col-sm text-secondary" to="/remove">Remove Account</b-link>
 
+    <b-link class="col-sm text-secondary" to="/register">Register</b-link>
     </b-navbar>
   </div>
 </template>

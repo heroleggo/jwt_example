@@ -1,6 +1,8 @@
 <template>
   <div>
+    <br>
     <h2>Login</h2>
+    <br>
     <b-form @submit.prevent="onSubmit(email, password)">
       <input type="text" v-model="email" placeholder="Email Address">
       <input type="password" v-model="password" placeholder="Password">
@@ -33,8 +35,8 @@ export default {
         qs[pair[0]] = decodeURIComponent(pair[1])
         return qs
       }, {})
-
-      this.$router.push(returnPath)
+      if (returnPath) this.$router.push(returnPath)
+      else this.$router.push('/')
     }
   }
 }
