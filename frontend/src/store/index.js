@@ -39,6 +39,10 @@ export default new Vuex.Store({
     REMOVE (state) {
       state.accessToken = null
       delete localStorage.accessToken
+    },
+    REGISTER (state) {
+      state.accessToken = null
+      delete localStorage.accessToken
     }
   },
   actions: {
@@ -53,13 +57,26 @@ export default new Vuex.Store({
       axios.defaults.headers.common['Authorization'] = undefined
       commit('LOGOUT')
     },
-    CHANGE ({commit}) {
-      axios.defaults.headers.common['Authorization'] = undefined
-      commit('CHANGE')
+    CHANGE ({commit}, {email, password, newPassword, confirmPassword}) {
+      return axios.post(`${resourceHost}/change`, {email, password, newPassword, confirmPassword})
+        .then(() => {
+          commit('CHANGE')
+          axios.defaults.headers.common['Authorization'] = undefined
+        })
     },
-    REMOVE ({commit}) {
-      axios.defaults.headers.common['Authorization'] = undefined
-      commit('REMOVE')
+    REMOVE ({commit}, {email, password}) {
+      return axios.post(`${resourceHost}/remove`, {email, password})
+        .then(() => {
+          commit('REMOVE')
+          axios.defaults.headers.common['Authorization'] = undefined
+        })
+    },
+    REGISTER ({commit}, {name, email, password}) {
+      return axios.post(`${resourceHost}/register`, {name, email, password})
+        .then(() => {
+          commit('REGISTER')
+          axios.defaults.headers.common['Authorization'] = undefined
+        })
     }
   }
 })

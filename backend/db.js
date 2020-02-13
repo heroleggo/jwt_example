@@ -1,50 +1,28 @@
-var _db = {
-  users: [
-    {id:1, name: 'chris', email: 'test@test.com', password: 'password'},
-    {id:2, name: 'hero', email: 'asd@asd.com', password: 'password'}
-  ],
-  logs: [
-
-  ]
-}
+var dbreq = require('./db.models')
 
 const db = {
+  createUser ({name, email, password}) {
+    return dbreq.User.create({name: name, email: email, password: password})
+  },
   findUser ({email, password}) {
-    const validator = user => user.email === email && user.password === password
-    return Promise.resolve()
-      .then(() => _db.users.filter(validator)[0])
+      return dbreq.User.findAll({raw: true, where: {email: email, password: password}})
   },
   findUserById (id) {
-    id = id * 1
-    const validator = user => user.id === id
-    return Promise.resolve()
-      .then(() => _db.users.filter(validator)[0])
+    return dbreq.User.findAll({raw: true, where: {idx: id}})
   },
   findAccessLog ({userId}) {
-    return Promise.resolve()
-      .then(() => _db.logs.filter(l => l.userId === userId))
+    return dbreq.Log.findAll({raw: true, where: {idx: userId}})
   },
   createAccessLog ({userId}) {
-    return Promise.resolve()
-      .then(() => _db.logs.push({userId, createAt: new Date}))
+    var a = new Date()
+    return dbreq.Log.create({idx: userId, createAt: a.toString()})
   },
   removeUser ({email, password}) {
-    const validator = user => user.email !== email && user.password !== password
-    return Promise.resolve()
-      .then(() => {
-        _db.users = _db.users.filter(validator)
-      })
+    return dbreq.User.destroy({where: {email: email, password: password}})
   },
-  changeUserPassword ({email, password}) {
-    const validator = user => user.email === email && user.password === password
-    const validator_ = user => user.email !== email && user.password !== password
-    return Promise.resolve()
-      .then(() => {
-        const val = _db.users.filter(validator)[0] // get user information
-        _db.users = _db.users.filter(validator_) // first, remove information from db
-        val.password = password // change information's password
-        _db.users.push(val) // add information to db
-      })
+  changePassword ({email, newPassword}) {
+    console.log(email, newPassword)
+    return dbreq.User.update({password: newPassword}, {where: {email: email}})
   }
 }
 
