@@ -3,19 +3,30 @@
     <b-navbar style="background-color: #c0ff96">
     <b-navbar-brand class="col-sm text-primary">NavBar</b-navbar-brand>
 
-    <b-link class="col-sm text-secondary" to="/">Home</b-link>
+    <div v-if="isAuthenticated">
+      <b-link class="col-sm text-secondary" to="/">Home</b-link>
 
-    <a class="col-sm text-secondary" href="" v-if="isAuthenticated" @click.prevent="onClickLogout">Logout</a>
+      <a class="col-sm text-secondary" href="" @click.prevent="onClickLogout">Logout</a>
 
-    <b-link class="col-sm text-secondary" to="/login">Login</b-link>
+      <b-link class="col-sm text-secondary" to="/me">Me</b-link>
 
-    <b-link class="col-sm text-secondary" to="/me">Me</b-link>
+      <b-link class="col-sm text-secondary" to="/change">Change Info</b-link>
 
-    <b-link class="col-sm text-secondary" to="/change">Change Info</b-link>
+      <b-link class="col-sm text-secondary" to="/remove">Remove Account</b-link>
+    </div>
+    <div v-else>
+      <b-link class="col-sm text-secondary" to="/">Home</b-link>
 
-    <b-link class="col-sm text-secondary" to="/remove">Remove Account</b-link>
+      <b-link class="col-sm text-secondary" to="/login">Login</b-link>
 
-    <b-link class="col-sm text-secondary" to="/register">Register</b-link>
+      <b-link class="col-sm text-secondary" to="/me">Me</b-link>
+
+      <b-link class="col-sm text-secondary" to="/change">Change Info</b-link>
+
+      <b-link class="col-sm text-secondary" to="/remove">Remove Account</b-link>
+
+      <b-link class="col-sm text-secondary" to="/register">Register</b-link>
+    </div>
     </b-navbar>
   </div>
 </template>
