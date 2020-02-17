@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md">
+  <div class="col-md" style="margin-left: 20px;">
     <br>
     <h2>Information</h2>
     <br>

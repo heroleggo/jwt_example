@@ -8,7 +8,7 @@
 
       <a class="col-sm text-secondary" href="" @click.prevent="onClickLogout">Logout</a>
 
-      <b-link class="col-sm text-secondary" to="/me">Me</b-link>
+      <b-link class="col-sm text-secondary" to="/me">Info</b-link>
 
       <b-link class="col-sm text-secondary" to="/change">Change Info</b-link>
 
@@ -19,9 +19,7 @@
 
       <b-link class="col-sm text-secondary" to="/login">Login</b-link>
 
-      <b-link class="col-sm text-secondary" to="/me">Me</b-link>
-
-      <b-link class="col-sm text-secondary" to="/change">Change Info</b-link>
+      <b-link class="col-sm text-secondary" to="/me">Info</b-link>
 
       <b-link class="col-sm text-secondary" to="/remove">Remove Account</b-link>
 

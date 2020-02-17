@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="margin-left: 20px;">
     <br>
     <h2>Home</h2>
     <br>
