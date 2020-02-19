@@ -10,56 +10,56 @@ import store from '../store'
 
 Vue.use(Router)
 
-const requireAuth = () => (to, from, next) => {
-  if (store.getters.isAuthenticated) return next()
-  next('/login?returnPath=me')
+const reqInfo = () => (to, from, next) => {
+	if (store.getters.isAuthenticated) return next()
+	next('/login?returnPath=me')
 }
 
-const req2 = () => (to, from, next) => {
-  if (store.getters.isAuthenticated) return next()
-  next('/login?returnPath=change')
+const reqChange = () => (to, from, next) => {
+	if (store.getters.isAuthenticated) return next()
+	next('/login?returnPath=change')
 }
 
-const req3 = () => (to, from, next) => {
-  if (store.getters.isAuthenticated) return next()
-  next('/login?returnPath=remove')
+const reqRemove = () => (to, from, next) => {
+	if (store.getters.isAuthenticated) return next()
+	next('/login?returnPath=remove')
 }
 
 export default new Router({
-  mode: 'history',
-  routes: [
-    {
-      path: '/',
-      name: 'Home',
-      component: Home
-    },
-    {
-      path: '/login',
-      name: 'Login',
-      component: Login
-    },
-    {
-      path: '/me',
-      name: 'Me',
-      component: Me,
-      beforeEnter: requireAuth()
-    },
-    {
-      path: '/change',
-      name: 'Change',
-      component: Change,
-      beforeEnter: req2()
-    },
-    {
-      path: '/remove',
-      name: 'Remove',
-      component: Remove,
-      beforeEnter: req3()
-    },
-    {
-      path: '/register',
-      name: 'Register',
-      component: Register
-    }
-  ]
+	mode: 'history',
+	routes: [
+		{
+			path: '/',
+			name: 'Home',
+			component: Home
+		},
+		{
+			path: '/login',
+			name: 'Login',
+			component: Login
+		},
+		{
+			path: '/me',
+			name: 'Me',
+			component: Me,
+			beforeEnter: reqInfo()
+		},
+		{
+			path: '/change',
+			name: 'Change',
+			component: Change,
+			beforeEnter: reqChange()
+		},
+		{
+			path: '/remove',
+			name: 'Remove',
+			component: Remove,
+			beforeEnter: reqRemove()
+		},
+		{
+			path: '/register',
+			name: 'Register',
+			component: Register
+		}
+	]
 })

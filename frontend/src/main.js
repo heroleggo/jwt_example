@@ -9,8 +9,8 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 Vue.use(bootstrapVue)
 
 new Vue({
-  el: '#app',
-  render: h => h(App),
-  store,
-  router
+	el: '#app',
+	render: h => h(App),
+	store,
+	router
 })
