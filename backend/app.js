@@ -4,7 +4,7 @@ const logger = require('morgan')
 const cors = require('cors')
 const app = express()
 const sequelize = require('./models/db').sequelize
-const router = require('./api/db')
+const router = require('./api/user')
 
 sequelize.sync()
 

@@ -1,4 +1,4 @@
-const service = require('../services/db')
+const service = require('../services/user')
 const auth = require('../auth')
 
 let home = async (req, res) => {
